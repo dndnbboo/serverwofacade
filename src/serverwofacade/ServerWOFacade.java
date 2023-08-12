@@ -4,24 +4,28 @@
  * and open the template in the editor.
  */
 
+// 64050075
+
 package serverwofacade;
 public class ServerWOFacade {
-    public static void main(String[] args) {
-        ScheduleServer scheduleServer = new ScheduleServer();
-	scheduleServer.startBooting();
-	scheduleServer.readSystemConfigFile();
-	scheduleServer.init();
-	scheduleServer.initializeContext();
-	scheduleServer.initializeListeners();
-	scheduleServer.createSystemObjects();
-	System.out.println("Start working......");
-	System.out.println("After work done.........");
-	scheduleServer.releaseProcesses();
-	scheduleServer.destory();
-	scheduleServer.destroySystemObjects();
-	scheduleServer.destoryListeners();
-	scheduleServer.destoryContext();
-	scheduleServer.shutdown();
+    public void startServer(){
+        ScheduleServer start = new ScheduleServer();
+        start.startBooting();
+	start.readSystemConfigFile();
+	start.init();
+	start.initializeContext();
+	start.initializeListeners();
+	start.createSystemObjects();
+        System.out.println("Start working......");
     }
-    
+    public void stopServer(){
+        ScheduleServer stop = new ScheduleServer();
+        System.out.println("After work done.........");
+	stop.releaseProcesses();
+	stop.destory();
+	stop.destroySystemObjects();
+	stop.destoryListeners();
+	stop.destoryContext();
+	stop.shutdown();
+    }
 }
